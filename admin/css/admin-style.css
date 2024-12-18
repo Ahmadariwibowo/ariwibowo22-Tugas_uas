@@ -1,0 +1,355 @@
+/* Reset dan style dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding-top: 56px;
+}
+
+/* Header Admin */
+.admin-header {
+    background: #2c3e50;
+    color: white;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header h1 {
+    font-size: 1.5rem;
+}
+
+/* Container untuk sidebar dan konten */
+.admin-container {
+    display: flex;
+    min-height: calc(100vh - 56px);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 0;
+    transition: all 0.3s ease;
+    background: #343a40;
+}
+
+/* List Group Styles */
+.sidebar .list-group {
+    background: transparent;
+}
+
+.sidebar .list-group-item {
+    background: transparent;
+    border: none;
+    border-left: 4px solid transparent;
+    padding: 15px 20px;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.sidebar .list-group-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: #3498db;
+    color: #fff;
+    padding-left: 25px;
+}
+
+.sidebar .list-group-item.active {
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: #e74c3c;
+    color: #fff;
+}
+
+/* Icon Styles */
+.sidebar .bi {
+    margin-right: 12px;
+    font-size: 1.1rem;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.sidebar .list-group-item:hover .bi {
+    transform: translateX(3px);
+}
+
+/* Text Styles */
+.sidebar span {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Logout Button Style */
+.sidebar .list-group-item.text-danger {
+    color: #ff6b6b !important;
+}
+
+.sidebar .list-group-item.text-danger:hover {
+    background: rgba(231, 76, 60, 0.1);
+    border-left-color: #ff6b6b;
+}
+
+/* Divider */
+.sidebar .list-group-item:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Scrollbar Styles */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar .list-group-item {
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    .sidebar span {
+        display: none;
+    }
+
+    .sidebar .bi {
+        margin: 0;
+        font-size: 1.4rem;
+    }
+
+    .sidebar .list-group-item:hover {
+        padding-left: 0;
+    }
+
+    .main-content {
+        margin-left: 70px;
+    }
+}
+
+/* Active Menu Indicator */
+.sidebar .list-group-item.active::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    background: #e74c3c;
+    border-radius: 2px 0 0 2px;
+}
+
+/* Hover Animation */
+.sidebar .list-group-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar .list-group-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: rgba(255, 255, 255, 0.05);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.sidebar .list-group-item:hover::after {
+    width: 100%;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+/* Tombol dan Form */
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-add {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-edit {
+    background: #3498db;
+    color: white;
+}
+
+.btn-delete {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-back {
+    background: #95a5a6;
+    color: white;
+}
+
+/* Tabel */
+.data-table {
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+    background: #f8f9fa;
+    font-weight: bold;
+}
+
+/* Form */
+.form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Messages */
+.message {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.success-message {
+    background: #27ae60;
+    color: white;
+}
+
+.error-message {
+    background: #e74c3c;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar span {
+        display: none;
+    }
+
+    .sidebar .bi {
+        margin-right: 0;
+        font-size: 1.4rem;
+    }
+
+    .main-content {
+        margin-left: 70px;
+    }
+
+    .form-container {
+        margin: 10px;
+    }
+}
+
+/* Cards & Tables */
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.table th {
+    background-color: #f8f9fa;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.btn-success {
+    background-color: #27ae60;
+    border-color: #27ae60;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+} 
